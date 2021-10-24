@@ -1,3 +1,42 @@
-<p>
-  sepetekle works!
-</p>
+<ng-container *ngIf="true" >
+  <div class="card-table">
+    <div  class="class cart-product">
+       <table style="margin-left: 140px;"  class="table table-responsive">
+          <ion-toolbar>
+            <ion-title>Favoriler</ion-title>
+          </ion-toolbar>
+
+
+
+      </table>
+    </div>
+  </div>
+</ng-container>
+<ion-content>
+<ion-grid>
+<ion-row>
+  <ion-col>
+    <div>
+      <ion-card  *ngFor="let item of product">
+        <img style="width: 200px;height: 150px;margin-left:70px ; border-radius: 5px;" src="{{item.imageUrl}}" >
+   <ion-card-content>
+    <ion-card-title>
+{{item.name}}
+    </ion-card-title>
+    <p>
+      {{item.yorum}}
+    </p>
+  </ion-card-content>
+
+
+  <ion-item>
+    <button  (click)="removeItem(item)" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></button>
+  </ion-item>
+
+</ion-card>
+    </div>
+  </ion-col>
+
+</ion-row>
+</ion-grid>
+</ion-content>
