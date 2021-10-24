@@ -7,9 +7,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BasicPipe } from './pipes/basic.pipe';
+import { CategoryfiltPipe } from './pipes/categoryfilt.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, BasicPipe, CategoryfiltPipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
