@@ -9,13 +9,10 @@ import { SepetekleComponent } from './sepetekle/sepetekle.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'cicek',
     pathMatch: 'full'
   },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
+
   {path:'cicek',component:CicekComponent},
   {path:'product-add-1',component: ProductAddComponent},
    {path:'app',component:AppComponent},

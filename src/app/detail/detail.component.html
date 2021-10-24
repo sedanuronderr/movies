@@ -1,3 +1,40 @@
-<p>
-  detail works!
-</p>
+<ion-content>
+  <div class="header">
+    <ion-buttons>
+      <ion-button style="width: 70px; height: 70px;" routerLink="/cicek">
+        <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons >
+      <ion-button   >
+
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <!-- FOOD DETAIL CARD -->
+  <div class="card">
+    <div class="image">
+      <img style="border-radius: 50%; width: 90%;height: 70%;"  src="{{image}}" alt="">
+    </div>
+
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin">{{name}}</h1>
+      </div>
+    </div>
+
+      <div class="badge">
+        <ion-icon name="time-outline"> </ion-icon> {{date}}
+      </div>
+
+
+    <div class="about">
+      <h1>About</h1>
+      <p>{{yorum}}</p>
+    </div>
+
+
+  </div>
+</ion-content>
+

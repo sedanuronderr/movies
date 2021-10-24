@@ -1,3 +1,70 @@
-<p>
-  product-add works!
-</p>
+<ion-content>
+
+  <div class="header">
+    <ion-buttons>
+      <ion-button routerLink="/cicek">
+        <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </div>
+
+  <form #productAddForm="ngForm" (ngSubmit)="submit(productAddForm)">
+   <div class="form-group">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Film İsmi</ion-label>
+      <ion-input #name="ngModel" type="text" [(ngModel)]="model.name" id="name" name="name" required></ion-input>
+
+    </ion-item>
+    <div *ngIf="name.invalid&&name.dirty" class="alert alert-danger" >
+      Film ismi gereklidir
+    </div>
+    <ion-item>
+      <ion-label position="floating">Film Resmi Url </ion-label>
+      <ion-input #imageUrl="ngModel" type="text" [(ngModel)]="model.imageUrl" id="imageUrl" name="imageUrl" required></ion-input>
+
+    </ion-item>
+    <div *ngIf="imageUrl.invalid&&imageUrl.dirty" class="alert alert-danger" >
+      Film resmi gereklidir
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Film Saati</ion-label>
+      <ion-input #date="ngModel" type="text" [(ngModel)]="model.date" name="name" required></ion-input>
+
+    </ion-item>
+    <div *ngIf="date.invalid&&date.dirty" class="alert alert-danger" >
+      Film saati gereklidir
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Yorum</ion-label>
+      <ion-input #yorum="ngModel" type="text" [(ngModel)]="model.yorum" name="yorum" required></ion-input>
+
+    </ion-item>
+    <div *ngIf="yorum.invalid&&yorum.dirty" class="alert alert-danger" >
+      yorum gereklidir
+    </div>
+    <ion-item>
+      <ion-label color="medium">Film türü:</ion-label>
+      <ion-select class="ion-text-end"  #cId="ngModel" [(ngModel)]="model.cId" name="cId">
+        <ion-select-option   *ngFor="let item of fruits" value="{{item}}">
+          {{ item}}
+        </ion-select-option>
+      </ion-select>
+      <ion-icon name="chevron-forward-outline" color="primary" item-end></ion-icon>
+    </ion-item>
+    <div *ngIf="cId.invalid&&cId.dirty" class="alert alert-danger" >
+      Film türü gereklidir
+    </div>
+  </ion-list>
+  <ion-button type="submit" [disabled]="productAddForm.invalid"  expand="block">Ekle <ion-icon slot="end"
+      name="create">
+    </ion-icon>
+  </ion-button>
+</div>
+</form>
+</ion-content>
+
+
