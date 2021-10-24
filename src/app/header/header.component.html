@@ -1,3 +1,22 @@
-<p>
-  header works!
-</p>
+<header  style="background-color: #815707;width: 380px;"  >
+  <ion-grid  >
+    <ion-row>
+      <ion-col >
+
+       <div class="wrapper">
+         <h1>Filmler</h1>
+         <ion-buttons>
+           <ion-button style="width: 70px; height: 70px;" routerLink="/sepet">
+             <ion-icon slot="icon-only"  name="basket"></ion-icon>
+             <i  class="badge bg-danger">{{totalItem}} </i>
+           </ion-button>
+         </ion-buttons>
+
+       </div>
+
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+ </header>

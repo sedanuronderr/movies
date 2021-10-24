@@ -1,0 +1,33 @@
+.header{
+  height: 30px;
+  position: fixed;
+  z-index: 12;
+  width: 270px;
+
+}
+  .wrapper {
+
+    background-color: #815707;
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      color: #050400;
+      margin: 7px;
+      margin-left: 14px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    ion-button {
+      height: 58px;
+      width: 58px;
+
+      ion-icon {
+        font-size: 4rem;
+      }
+      i{
+      margin-top: 14px;
+      }
+    }
+  }
