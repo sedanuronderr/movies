@@ -1,0 +1,173 @@
+.card {
+  width: 100%;
+  padding: 1.6rem 2rem;
+  background: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 2.5rem;
+  margin-bottom: 1.5rem;
+
+  .card-content {
+    text-align: center;
+
+    .title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+      color: #1d1d1d;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffb800;
+      margin-top: 0;
+
+      sup {
+        font-size: 1rem;
+        margin-right: 2px;
+        color: #ffb800;
+      }
+    }
+
+    ion-buttons {
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+
+      ion-button {
+        --background: #6b45bc;
+        font-weight: 700;
+        color: #fff;
+        width: 30px;
+        height: 40px;
+        --padding-start: 0;
+        --padding-end: 0;
+        --padding-top: 0;
+        --padding-bottom: 0;
+      }
+    }
+  }
+}
+
+ion-searchbar {
+  --box-shadow: none;
+  --background: #f3f3f3;
+  --border-radius: 1.2rem;
+  --placeholder-font-weight: 600;
+  --placeholder-opacity: 0.2;
+  margin-left: 20px;
+  width: 320px;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.list-header {
+  font-weight: 700;
+  color: #515151;
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+  margin-top: 2.5rem;
+  margin-left: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.food-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+
+
+
+
+
+  .image-card {
+    background-color: #f3f3f3;
+
+
+    border-radius: 1.5rem;
+
+    width: 240px;
+    height: 100px;
+    ion-img {
+      opacity: 0.8;
+    }
+  }
+
+  p {
+    color: #c7c7c7;
+  }
+
+  .wrapper.active {
+    .image-card {
+      background-color: #888396;
+    }
+
+    p {
+      color: #1d1d1d;
+      font-weight: 600;
+    }
+  }
+
+
+  ion-tab-bar {
+    padding: 10px 0;
+
+    ion-tab-button {
+      ion-icon {
+        font-size: 1.7rem;
+      }
+    }
+  }
+  .scrolling-wrapper {
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    .card1 {
+      display: inline-block;
+      width: 120px;
+      height: 100px;
+
+
+
+      border-radius: 9px;
+      margin-top: 10px;
+      margin-left: 9px;
+
+   h2{
+    font-family: "Times New Roman", Times, serif;
+
+    padding-top: 20px;
+    padding-left:5px ;
+   }
+    }
+  }
+  .badge {
+
+
+    border-color: black;
+    background: #ffffff;
+    color: rgb(15, 13, 13);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+padding: 0.3rem;
+    margin-left: 95px;
+
+    border-radius: 1rem;
+
+    ion-icon {
+      margin-right: 0.3rem;
+      font-size: 1.5rem;
+    }
+  }
+  ion-content.background{
+    --background: url(../../assets/icon/film.jpg) 0 0/100% 100% no-repeat;
+}

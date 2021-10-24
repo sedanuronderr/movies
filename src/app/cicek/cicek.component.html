@@ -1,3 +1,87 @@
-<p>
-  cicek works!
-</p>
+<app-header style="height: 90px; width:280px">
+</app-header>
+
+<ion-content padding class="background" >
+
+<div style="margin-top: 30px;">
+
+  <ion-searchbar placeholder="Ürün giriniz"  [(ngModel)]="filterText"></ion-searchbar>
+
+<h3 *ngIf="products; else elseTemplate">
+
+</h3>
+
+<ng-template #elseTemplate>
+  Ürün yoktur
+</ng-template>
+</div>
+
+<div class="scrolling-wrapper"   >
+  <div  class="card1"  *ngFor="let item of category"  routerLink="/cicek/{{item.label}}" >
+    <img style=" width: 100px;
+    height: 100px; border-radius: 9px;
+
+     "  src={{item.image}}   />
+
+    <h2>{{item.label}}</h2>
+
+  </div>
+
+
+</div>
+
+<h1 class="list-header">Popular</h1>
+
+
+
+<ion-grid>
+  <ion-row  >
+
+    <ion-col  >
+
+<div class="food-list" >
+
+
+
+  <div  style="border-radius: 20px;width: 150px; height:260px" *ngFor="let food of products  | basic:filterText" >
+
+    <ion-card   style="border-radius: 20px;width: 150px; height:260px">
+ <img style="width: 240px; height: 170px; border-radius: 10px;" src="{{food.imageUrl}}" (click)="goToDetailPage(food.name,food.imageUrl,food.date,food.yorum)">
+
+
+
+
+      <ion-card-header>
+        <ion-card-subtitle>{{food.name}}</ion-card-subtitle>
+
+      </ion-card-header>
+
+      <div  class="badge">
+        <ion-icon
+
+
+       (click)="toggleLikeState(food)"
+          tappable
+          [@heart]="likeState"
+          size="large"
+          [name]="iconName"
+        >
+        </ion-icon>
+      </div>
+
+    </ion-card>
+
+  </div>
+
+      </div>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+
+
+
+</ion-content>
+
+
+

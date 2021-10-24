@@ -1,0 +1,63 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "cId": "Komedi",
+      "name": "Gül",
+      "imageUrl": "https://st3.myideasoft.com/shop/ir/87/myassets/products/497/kirmizi-yerli-gul-fidani-1.jpg?revision=1585648960",
+      "yorum": "harika izlenmesi gereken film",
+      "date": "2 saat"
+    },
+    {
+      "id": 2,
+      "cId": "Komedi",
+      "name": "Papatya",
+      "imageUrl": "https://st3.myideasoft.com/shop/cr/25/myassets/products/109/papatya-tohumu.png?revision=1581517607",
+      "yorum": "harika izlenmesi gereken film",
+      "date": "2 saat"
+    },
+    {
+      "id": 3,
+      "cId": "Korku",
+      "name": "Lale",
+      "imageUrl": "https://587264.smushcdn.com/1598257/wp-content/uploads/2020/04/4Y9A0506.jpg?lossy=1&strip=1&webp=1",
+      "yorum": "harika izlenmesi gereken film",
+      "date": "2 saat"
+    },
+    {
+      "id": 4,
+      "cId": "Romantik",
+      "name": "Lale",
+      "imageUrl": "https://587264.smushcdn.com/1598257/wp-content/uploads/2020/04/4Y9A0506.jpg?lossy=1&strip=1&webp=1",
+      "yorum": "harika izlenmesi gereken film",
+      "date": "2 saat"
+    }
+
+  ],
+  "category": [
+    {
+      "id": 1,
+      "label": "Korku",
+      "image": "https://i20.haber7.net/resize/1240x720//haber/haber7/photos/2019/44/korku_filmi_izlemenin_vucuda_faydalari_aciklandi_fazladan_kalori_yaktiriyor_1572521157_058.jpg",
+      "active": "true"
+    },
+    {
+      "id": 2,
+      "label": "Komedi",
+      "image": "https://i4.hurimg.com/i/hurriyet/75/750x0/5d792ec845d2a023a0dbe4d3.jpg",
+      "active": "false"
+    },
+    {
+      "id": 3,
+      "label": "Romantik",
+      "image": "https://cdn1.ntv.com.tr/gorsel/DHZL48KGAEyOGTrOjz2Zag.jpg?width=1000&mode=crop&scale=both",
+      "active": "false"
+    },
+    {
+      "id": 4,
+      "label": "Bilim",
+      "image": "https://img-s3.onedio.com/id-60785dff06d02e653b0f8be8/rev-0/w-900/h-585/f-jpg/s-14ddddbe75d427a38df5dce82fb576bd7a51f9ca.jpg",
+      "active": "false"
+    }
+  ]
+}
