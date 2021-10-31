@@ -29,7 +29,7 @@
 }
   .wrapper {
 
-    background-color: #815707;
+    background-color: #380596;
     display: flex;
     justify-content: space-between;
 
@@ -42,3 +42,6 @@
       font-family: "Times New Roman", Times, serif;
     }
   }
+  ion-content.background{
+    --background: url(../../assets/icon/mor.jpg) 0 0/100% 100% no-repeat;
+}
