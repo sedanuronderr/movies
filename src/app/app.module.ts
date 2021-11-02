@@ -1,3 +1,4 @@
+import { initializeApp } from 'firebase/app';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -17,12 +18,22 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { SepetekleComponent } from './sepetekle/sepetekle.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule} from '@angular/fire/compat';
+import { AngularFireDatabaseModule} from '@angular/fire/compat/database';
+import { AngularFirestoreModule} from '@angular/fire/compat/firestore'
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 @NgModule({
   declarations: [AppComponent, BasicPipe, CategoryfiltPipe,CicekComponent,ProductAddComponent,
     DetailComponent,SepetekleComponent,HeaderComponent,FoodComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,FormsModule,HttpClientModule,ReactiveFormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,FormsModule,HttpClientModule,ReactiveFormsModule,
+  AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,AngularFirestoreModule,
+  ToastrModule.forRoot()
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent,CicekComponent,SepetekleComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

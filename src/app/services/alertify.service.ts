@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../model/product';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 declare let alertify:any;
 @Injectable({
@@ -11,9 +12,16 @@ declare let alertify:any;
 export class AlertifyService {
  public apis ="http://localhost:3000/products";
  public category="http://localhost:3000/category";
-  products: Product[];
+  products: Product;
   categor:Category[];
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private firestore:AngularFirestore) { }
+
+
+
+
+
+
+
 
   success(message:string){
     alertify.success(message);

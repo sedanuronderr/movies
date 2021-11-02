@@ -16,6 +16,7 @@
     "@angular/animations": "^12.2.11",
     "@angular/common": "~12.1.1",
     "@angular/core": "~12.1.1",
+    "@angular/fire": "^7.1.1",
     "@angular/forms": "~12.1.1",
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
@@ -27,6 +28,8 @@
     "@capacitor/status-bar": "1.0.5",
     "@ionic/angular": "^5.5.2",
     "alertifyjs": "^1.13.1",
+    "firebase": "^9.2.0",
+    "ngx-toastr": "^14.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -64,5 +67,14 @@
     "ts-node": "~8.3.0",
     "typescript": "~4.2.4"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SedaNur35/movies.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SedaNur35/movies/issues"
+  }
 }
