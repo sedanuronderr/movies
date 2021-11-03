@@ -5,7 +5,7 @@ import { FormBuilder, NgForm } from '@angular/forms';
 import { Product } from 'src/app/model/product';
 import { AlertifyService } from '../services/alertify.service';
 import { ToastrService } from 'ngx-toastr';
-
+declare let alertify:any;
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.component.html',
@@ -27,24 +27,16 @@ this.servis.addproduct(this.model).subscribe(data=>{
   this.servis.success(data.name  +"  başarıyla yüklendi");
 });
  }*/
-resetForm(form?:NgForm){
-  form.resetForm();
-  this.servis.products ={
-    id: null,
-    cId:'',
-    name:'',
-    imageUrl:'',
-    yorum:'',
-    date:'',
 
-  }
+
+success(message:string){
+  alertify.success(message);
 }
 
  submit(form:NgForm){
 let data =form.value;
 this.firestore.collection("film").add(data);
-this.resetForm(form);
-this.toastr.success("Başarıyla Eklendi");
+this.toastr.success("Başarıyla Yüklendi","Film");
  }
 
 }

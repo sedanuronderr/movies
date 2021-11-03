@@ -6,19 +6,26 @@ import { Product } from '../model/product';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 declare let alertify:any;
+
 @Injectable({
   providedIn: 'root'
 })
 export class AlertifyService {
  public apis ="http://localhost:3000/products";
  public category="http://localhost:3000/category";
-  products: Product;
+  products: Observable<Product[]> ;
   categor:Category[];
-  constructor(private http:HttpClient,private firestore:AngularFirestore) { }
+  constructor(private http:HttpClient,private firestore:AngularFirestore) {
+
+   }
 
 
 
-
+   getFirestore(){
+   return   this.firestore
+    .collection("film")
+    .snapshotChanges();
+  }
 
 
 

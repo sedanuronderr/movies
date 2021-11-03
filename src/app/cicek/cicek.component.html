@@ -43,7 +43,7 @@
 
 
 
-  <div  style="border-radius: 20px;width: 150px; height:260px" *ngFor="let food of products  | basic:filterText" >
+  <div  style="border-radius: 20px;width: 150px; height:260px" *ngFor="let food of pro  | basic:filterText" >
 
     <ion-card   style="border-radius: 20px;width: 150px; height:260px">
  <img style="width: 240px; height: 170px; border-radius: 10px;" src="{{food.imageUrl}}" (click)="goToDetailPage(food.name,food.imageUrl,food.date,food.yorum)">

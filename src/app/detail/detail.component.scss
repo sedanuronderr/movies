@@ -34,15 +34,16 @@ ion-content {
         left: 50%;
         border-radius: 50%;
         transform: translateX(-50%);
-        margin-left: 20px;
+        margin-left: 18px;
       }
 
       .card-title {
-        margin-top: 35%;
+        margin-top: 25%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1.2rem;
+        margin-left: 140px;
 
         h1 {
           font-weight: 700;
@@ -77,13 +78,28 @@ ion-content {
         p {
           font-size: 1.1rem;
           line-height: 1.6;
-          color: #b9b9b9;
+          color: #050101;
         }
       }
     }
   }
+
+  .aboutt{
+
+    padding:10px;
+    border-style: inset;
+    border-radius: 4px;
+    width: 290px;
+    height: 160px;
+    background-color:rgb(213, 169, 233);opacity:0.6;
+    border-color: blueviolet;
+
+  }
+  .pp{
+    color: rgb(58, 7, 59);
+  }
   .badge {
-    width: 90px;
+    width: 130px;
     margin-right: 1rem;
     background: #6b45bc;
     color: #fff;
@@ -101,3 +117,4 @@ ion-content {
   .myClass{
     color : red;
   }
+

@@ -12,6 +12,7 @@
   <form #productAddForm="ngForm" (ngSubmit)="submit(productAddForm)">
    <div class="form-group">
   <ion-list>
+
     <ion-item>
       <ion-label position="floating">Film İsmi</ion-label>
       <ion-input #name="ngModel" type="text" [(ngModel)]="model.name" id="name" name="name" required></ion-input>
@@ -20,6 +21,7 @@
     <div *ngIf="name.invalid&&name.dirty" class="alert alert-danger" >
       Film ismi gereklidir
     </div>
+
     <ion-item>
       <ion-label position="floating">Film Resmi Url </ion-label>
       <ion-input #imageUrl="ngModel" type="text" [(ngModel)]="model.imageUrl" id="imageUrl" name="imageUrl" required></ion-input>
@@ -31,7 +33,7 @@
 
     <ion-item>
       <ion-label position="floating">Film Saati</ion-label>
-      <ion-input #date="ngModel" type="text" [(ngModel)]="model.date" name="name" required></ion-input>
+      <ion-input #date="ngModel" type="text" [(ngModel)]="model.date" name="date" required></ion-input>
 
     </ion-item>
     <div *ngIf="date.invalid&&date.dirty" class="alert alert-danger" >

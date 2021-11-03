@@ -7,6 +7,7 @@ import { Component, OnInit,Input  } from '@angular/core';
 import { Product } from '../model/product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Component({
   selector: 'app-cicek',
   templateUrl: './cicek.component.html',
@@ -33,13 +34,13 @@ export class CicekComponent implements OnInit {
 
 
 
-  constructor(private api:HttpClient,private alertify:AlertifyService ,private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) { }
+  constructor(private api:HttpClient,private alertify:AlertifyService ,private firestore:AngularFirestore,private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) { }
   title="Ürün Listesi";
   filterText= "";
   totalItem !:0;
   category:Category[];
    products :Product[];
-  pro:Product[];
+  pro:any;
   public likeState: string = 'liked';
 
   public iconName: string = 'heart';
@@ -50,7 +51,7 @@ export class CicekComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.active.params.subscribe(data=>{
+   /* this.active.params.subscribe(data=>{
       this.alertify.getproducts(data["id"]).subscribe(data=>{
         this.products=data;
       })
@@ -59,6 +60,16 @@ export class CicekComponent implements OnInit {
      this.cardservice.getProducts().subscribe(resp=>{
         this.totalItem=resp.length;
      });
+*/
+
+
+
+
+
+
+
+
+
 
 
      this.active.params.subscribe(data=>{
@@ -67,7 +78,19 @@ export class CicekComponent implements OnInit {
       })
     });
 
+    this.getAll();
+
   }
+
+
+  getAll(){
+    this.firestore.collection('film').snapshotChanges().subscribe((response) => {
+        this.pro = response.map(item =>
+          Object.assign({id : item.payload.doc.id}, item.payload.doc.data())
+        );
+      })
+    }
+
 
 goToDetailPage(name:string,image:string,date:string,yorum:string){
   this.router.navigate(['detail',name,image,date,yorum]);
