@@ -17,6 +17,7 @@ export class ProductAddComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private servis:AlertifyService,private firestore:AngularFirestore,private toastr: ToastrService) { }
   model :Product = new Product();
   category:[];
+  product:Product;
    fruits: string[] = ['Korku', 'Komedi', 'Romantik','Bilim'];
   ngOnInit() {
 
@@ -37,6 +38,8 @@ success(message:string){
 let data =form.value;
 this.firestore.collection("film").add(data);
 this.toastr.success("Başarıyla Yüklendi","Film");
+form.resetForm();
  }
+
 
 }

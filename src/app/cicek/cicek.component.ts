@@ -1,6 +1,5 @@
 import { Category } from '../model/category';
 import { CartItemService } from './../services/cart-item.service';
-
 import { AlertifyService } from './../services/alertify.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit,Input  } from '@angular/core';
@@ -8,6 +7,7 @@ import { Product } from '../model/product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from '@firebase/util';
 @Component({
   selector: 'app-cicek',
   templateUrl: './cicek.component.html',
@@ -26,7 +26,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
       })),
       transition('unliked <=> liked', animate('100ms ease-out'))
   ])
-  ]
+  ],
+  providers:[CartItemService]
 })
 export class CicekComponent implements OnInit {
 
@@ -40,7 +41,9 @@ export class CicekComponent implements OnInit {
   totalItem !:0;
   category:Category[];
    products :Product[];
-  pro:any;
+  pro=[];
+  categoryy:any;
+
   public likeState: string = 'liked';
 
   public iconName: string = 'heart';
@@ -65,30 +68,46 @@ export class CicekComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
      this.active.params.subscribe(data=>{
       this.alertify.getcategory(data["id"]).subscribe(data=>{
         this.category=data;
       })
     });
 
-    this.getAll();
+   this.getAll();
+
 
   }
 
+buton(dataa:any){
+
+  this.firestore.collection('film',ref=>{
+    return ref.where("cId","==",dataa)
+  }).snapshotChanges().subscribe((response) => {
+    this.pro =[];
+       response.forEach(item =>{
+        let a:any= item.payload.doc.data();
+        a.id = item.payload.doc.id;
+        this.pro.push(a);
+      }
+      );
+    });
+
+  this.router.navigate(['cicek']);
+
+}
 
   getAll(){
     this.firestore.collection('film').snapshotChanges().subscribe((response) => {
-        this.pro = response.map(item =>
-          Object.assign({id : item.payload.doc.id}, item.payload.doc.data())
+      this.pro =[];
+         response.forEach(item =>{
+          let a:any= item.payload.doc.data();
+          a.id = item.payload.doc.id;
+          this.pro.push(a);
+        }
         );
-      })
+      });
+
     }
 
 
@@ -96,7 +115,13 @@ goToDetailPage(name:string,image:string,date:string,yorum:string){
   this.router.navigate(['detail',name,image,date,yorum]);
 }
 toggleLikeState(item){
- this.products.map((items)=>{
+
+
+  console.log(item);
+
+this.cardservice.cartAdd(item);
+
+/* this.products.map((items)=>{
   if(item === items ){
 
 
@@ -104,10 +129,10 @@ toggleLikeState(item){
     this.cardservice.addtoCart(item);
   }
 
- })
+ })*/
 
 
-
+}
 
  /* if(this.likeState ==='unliked' ){
 
@@ -124,7 +149,7 @@ toggleLikeState(item){
   }*/
 
 
-}
+
 }
 
 

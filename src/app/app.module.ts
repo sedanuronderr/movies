@@ -36,7 +36,7 @@ import { AlertifyService } from './services/alertify.service';
   AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,AngularFirestoreModule,
   ToastrModule.forRoot()
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,CartItemService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService],
   bootstrap: [AppComponent,CicekComponent,SepetekleComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

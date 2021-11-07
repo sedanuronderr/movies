@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { NgForm } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 declare let alertify:any;
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CartItemService {
-public cartItemlist:any[]=[];
+public cartItemlist=[];
 public productList= new BehaviorSubject<any>([]);
-  constructor() { }
+  constructor(private firestore:AngularFirestore) { }
 
   success(message:string){
     alertify.success(message);
   }
 
+   cartAdd(data){
+     console.log(data);
+    this.firestore.collection('favori').add(data);
 
+
+   }
 
   getProducts(){
     return this.productList.asObservable();

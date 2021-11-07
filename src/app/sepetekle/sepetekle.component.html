@@ -20,7 +20,7 @@
 <ion-row>
   <ion-col>
     <div  style="width: 340px;height: 190px; border-radius: 5px;" >
-      <ion-card  *ngFor="let item of product">
+      <ion-card  *ngFor="let item of pro">
         <img style="width: 340px;height: 170px; border-radius: 5px;" src="{{item.imageUrl}}" >
    <ion-card-content>
     <ion-card-title>
@@ -33,7 +33,12 @@
 
 
   <ion-item>
-    <button  (click)="removeItem(item)" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></button>
+
+      <ion-icon (click)="removeItem(item.id)" style="color: darkred;width: 30px;height: 30px; margin-left: 240px;" name="trash-outline">
+
+      </ion-icon>
+
+
   </ion-item>
 
 </ion-card>

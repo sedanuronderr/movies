@@ -18,7 +18,7 @@ const routes: Routes = [
    {path:'app',component:AppComponent},
    {path:'detail/:name/:image/:date/:yorum',component:DetailComponent},
    {path:'sepet',component:SepetekleComponent},
-   {path:'cicek/:id',component:CicekComponent},
+   {path:'cicek/:dataa',component:CicekComponent},
 
 ];
 

@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   firebaseConfig : {
-    apiKey: "AIzaSyBpIzrCqOpG5M_9nlVW28GtSQ24crGeNyc",
+  apiKey: "AIzaSyBpIzrCqOpG5M_9nlVW28GtSQ24crGeNyc",
   authDomain: "filmcrud-58def.firebaseapp.com",
   projectId: "filmcrud-58def",
   storageBucket: "filmcrud-58def.appspot.com",
@@ -15,6 +15,7 @@ export const environment = {
   measurementId: "G-5W1E28K1X6"
   }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -16,12 +16,12 @@
 </ng-template>
 </div>
 
-<div class="scrolling-wrapper"   >
-  <div  class="card1"  *ngFor="let item of category"  routerLink="/cicek/{{item.label}}" >
+<div class="scrolling-wrapper" >
+  <div   class="card1"  *ngFor="let item of category"    >
     <img style=" width: 100px;
     height: 100px; border-radius: 9px;
 
-     "  src={{item.image}}   />
+     "  src={{item.image}}   (click)="buton(item.label)" />
 
     <h2 style="color: white;" >{{item.label}}</h2>
 

@@ -12,9 +12,9 @@ declare let alertify:any;
 })
 export class AlertifyService {
  public apis ="http://localhost:3000/products";
- public category="http://localhost:3000/category";
+ public category="https://raw.githubusercontent.com/SedaNur35/Category/main/category.json";
   products: Observable<Product[]> ;
-  categor:Category[];
+  product:Product;
   constructor(private http:HttpClient,private firestore:AngularFirestore) {
 
    }
@@ -22,6 +22,7 @@ export class AlertifyService {
 
 
    getFirestore(){
+
    return   this.firestore
     .collection("film")
     .snapshotChanges();
@@ -46,7 +47,7 @@ export class AlertifyService {
 
   }
   getcategory(data):Observable<Category[]>{
-    return  this.http.get<Category[]>(this.category );
+    return  this.http.get<Category[]>(this.category);
 
     }
 
