@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ const routes: Routes = [
     redirectTo: 'cicek',
     pathMatch: 'full'
   },
-
+  {path:'login',component:LoginComponent},
   {path:'cicek',component:CicekComponent},
   {path:'product-add-1',component: ProductAddComponent},
    {path:'app',component:AppComponent},

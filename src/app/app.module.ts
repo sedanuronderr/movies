@@ -1,3 +1,5 @@
+import { AcountService } from './services/acount.service';
+import { LoginComponent } from './login/login.component';
 import { initializeApp } from 'firebase/app';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,20 +25,19 @@ import { AngularFireModule} from '@angular/fire/compat';
 import { AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import { AngularFirestoreModule} from '@angular/fire/compat/firestore'
 import { ToastrModule } from 'ngx-toastr';
-import { CartItemService } from './services/cart-item.service';
+
 import { AlertifyService } from './services/alertify.service';
 
 
 
 @NgModule({
   declarations: [AppComponent, BasicPipe, CategoryfiltPipe,CicekComponent,ProductAddComponent,
-    DetailComponent,SepetekleComponent,HeaderComponent,FoodComponent,],
+    DetailComponent,SepetekleComponent,HeaderComponent,FoodComponent,LoginComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,FormsModule,HttpClientModule,ReactiveFormsModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,AngularFirestoreModule,
-  ToastrModule.forRoot()
-  ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService],
+  ToastrModule.forRoot()  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService],
   bootstrap: [AppComponent,CicekComponent,SepetekleComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
