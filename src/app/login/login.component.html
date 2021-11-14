@@ -1,32 +1,38 @@
 
 <ion-content >
-  <form  #form="ngForm"  >
-    <ion-grid>
-      <ion-row color="primary" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div  class="border">
-            <h3  >Create your account</h3>
-          </div>
+  <form #productAddForm="ngForm"   (ngSubmit)="login(productAddForm)" >
+    <div class="form-group">
+   <ion-list>
 
-          <div class="padding">
-            <ion-item>
-              <ion-input  name="name" type="text" placeholder="Name" ngModel required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input name="confirm" type="password" placeholder="Password again" ngModel required></ion-input>
-            </ion-item>
-          </div>
-          <div padding>
-            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </form>
+
+     <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input #email="ngModel" type="text" [(ngModel)]="model.email"  id="email" name="email" required></ion-input>
+
+    </ion-item>
+    <div *ngIf="email.invalid&&email.dirty" class="alert alert-danger" >
+      Email gereklidir
+    </div>
+
+     <ion-item>
+       <ion-label position="floating">Password </ion-label>
+       <ion-input #password="ngModel" type="text" [(ngModel)]="model.password" id="password" name="paasword" required></ion-input>
+
+     </ion-item>
+     <div *ngIf="password.invalid&&password.dirty" class="alert alert-danger" >
+       Şifre gereklidir
+     </div>
+
+
+
+
+   </ion-list>
+   <ion-button type="submit" [disabled]="productAddForm.invalid"  expand="block">Giriş <ion-icon slot="end"
+       name="create">
+     </ion-icon>
+   </ion-button>
+ </div>
+    <h1  style="color: blue;"   [routerLink]="['/register']" routerLinkActive="router-link-active"   > Kayıt Ol
+    </h1>
+ </form>
 </ion-content>

@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { AcountService } from './services/acount.service';
 import { LoginComponent } from './login/login.component';
 import { initializeApp } from 'firebase/app';
@@ -32,7 +33,7 @@ import { AlertifyService } from './services/alertify.service';
 
 @NgModule({
   declarations: [AppComponent, BasicPipe, CategoryfiltPipe,CicekComponent,ProductAddComponent,
-    DetailComponent,SepetekleComponent,HeaderComponent,FoodComponent,LoginComponent],
+    DetailComponent,SepetekleComponent,HeaderComponent,FoodComponent,LoginComponent,RegisterComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,FormsModule,HttpClientModule,ReactiveFormsModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,AngularFirestoreModule,

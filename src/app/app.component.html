@@ -20,9 +20,18 @@
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index" >
             <ion-item  routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label  >{{ p.title }}</ion-label>
+              <ion-label    >{{ p.title }}</ion-label>
+
             </ion-item>
+
           </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false"  *ngFor="let item of labels; let i = index" >
+          <ion-item   routerDirection="root" [routerLink]="[item.url]" lines="none" detail="false" routerLinkActive="selected">
+            <ion-label   *ngIf="isLoggIn()==false"  >{{item.title}}</ion-label>
+            <ion-icon slot="start" [ios]="item.icon + '-outline'" [md]="item.icon + '-sharp'"></ion-icon>
+
+          </ion-item>
+        </ion-menu-toggle>
         </ion-list>
 
 

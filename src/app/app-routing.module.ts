@@ -1,3 +1,5 @@
+import { RegisterComponent } from './register/register.component';
+import { LoginGuardGuard } from './Guard/login-guard.guard';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -15,11 +17,12 @@ const routes: Routes = [
   },
   {path:'login',component:LoginComponent},
   {path:'cicek',component:CicekComponent},
-  {path:'product-add-1',component: ProductAddComponent},
+  {path:'product-add-1',component: ProductAddComponent,canActivate:[LoginGuardGuard]},
    {path:'app',component:AppComponent},
    {path:'detail/:name/:image/:date/:yorum',component:DetailComponent},
    {path:'sepet',component:SepetekleComponent},
    {path:'cicek/:dataa',component:CicekComponent},
+   {path:'register',component:RegisterComponent},
 
 ];
 

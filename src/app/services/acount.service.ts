@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from '@firebase/util';
 import { User } from '../model/User';
 
 @Injectable({
@@ -7,19 +8,19 @@ import { User } from '../model/User';
 export class AcountService {
 
   constructor() { }
-loggedIN =false;
+loggedIN = false;
 login(user:User):boolean{
 
-if(user.userName=="seda"&&user.password=="12345"){
+if(user.email=="seda" &&user.password=="12345"){
 
-  return true;
   this.loggedIN=true;
-  localStorage.setItem("isLogged",user.userName);
+  localStorage.setItem("isLogged",user.email);
+  return true;
 }
 return false;
 }
 
-idLoggedIn(){
+isLoggedIn(){
   return this.loggedIN;
 }
 logOut(){
