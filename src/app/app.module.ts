@@ -1,3 +1,4 @@
+import { CartItemService } from './services/cart-item.service';
 import { RegisterComponent } from './register/register.component';
 import { AcountService } from './services/acount.service';
 import { LoginComponent } from './login/login.component';
@@ -28,6 +29,7 @@ import { AngularFirestoreModule} from '@angular/fire/compat/firestore'
 import { ToastrModule } from 'ngx-toastr';
 
 import { AlertifyService } from './services/alertify.service';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 
@@ -37,8 +39,8 @@ import { AlertifyService } from './services/alertify.service';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,FormsModule,HttpClientModule,ReactiveFormsModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,AngularFirestoreModule,
-  ToastrModule.forRoot()  ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService],
+  ToastrModule.forRoot() ,AngularFireAuthModule ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService,CartItemService],
   bootstrap: [AppComponent,CicekComponent,SepetekleComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  login(ngForm:NgForm){
-    this.account.login(this.model);
+  login(form:NgForm){
+    let data =form.value;
+    this.account.loginn(data);
   }
 }

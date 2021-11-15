@@ -34,16 +34,16 @@ ion-content {
         left: 50%;
         border-radius: 50%;
         transform: translateX(-50%);
-        margin-left: 18px;
+        margin-left: 14px;
       }
 
       .card-title {
         margin-top: 25%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         margin-bottom: 1.2rem;
-        margin-left: 140px;
+
 
         h1 {
           font-weight: 700;
@@ -87,19 +87,19 @@ ion-content {
   .aboutt{
 
     padding:10px;
-    border-style: inset;
+    border-style: outset;
     border-radius: 4px;
     width: 290px;
     height: 160px;
-    background-color:rgb(213, 169, 233);opacity:0.6;
+    border-radius:  10% 10%;
     border-color: blueviolet;
 
   }
   .pp{
-    color: rgb(58, 7, 59);
+    color: rgb(2, 0, 0);
   }
   .badge {
-    width: 130px;
+    width: 190px;
     margin-right: 1rem;
     background: #6b45bc;
     color: #fff;

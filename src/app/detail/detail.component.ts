@@ -21,11 +21,11 @@ export class DetailComponent implements OnInit {
   constructor(private alertify:AlertifyService,  private activate: ActivatedRoute,private cardservice:CartItemService) { }
 
   ngOnInit() {
-    this.activate.params.subscribe(data=>{
+  /*  this.activate.params.subscribe(data=>{
       this.alertify.getproducts(data["id"]).subscribe(data=>{
         this.product=data;
       })
-    });
+    });*/
     this.id = +this.activate.snapshot.paramMap.get('id');
     this.name = this.activate.snapshot.paramMap.get('name');
     this.image = this.activate.snapshot.paramMap.get('image');

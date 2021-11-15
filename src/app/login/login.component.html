@@ -16,7 +16,7 @@
 
      <ion-item>
        <ion-label position="floating">Password </ion-label>
-       <ion-input #password="ngModel" type="text" [(ngModel)]="model.password" id="password" name="paasword" required></ion-input>
+       <ion-input #password="ngModel" type="text" [(ngModel)]="model.password" id="password" name="password" required></ion-input>
 
      </ion-item>
      <div *ngIf="password.invalid&&password.dirty" class="alert alert-danger" >
@@ -32,7 +32,7 @@
      </ion-icon>
    </ion-button>
  </div>
-    <h1  style="color: blue;"   [routerLink]="['/register']" routerLinkActive="router-link-active"   > Kayıt Ol
-    </h1>
+    <h3  style="color: blue; margin-left: 20px;"   [routerLink]="['/register']" routerLinkActive="router-link-active"   > Kayıt Ol
+    </h3>
  </form>
 </ion-content>

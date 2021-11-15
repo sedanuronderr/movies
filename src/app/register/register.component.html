@@ -1,3 +1,45 @@
-<p>
-  register works!
-</p>
+<ion-content>
+
+  <form #productAddForm="ngForm"   (ngSubmit)="register(productAddForm)" >
+    <div class="form-group">
+   <ion-list>
+    <ion-item>
+      <ion-label position="floating">Kullanıcı Adı</ion-label>
+      <ion-input #kullanici="ngModel" type="text" [(ngModel)]="model.kullanici"  id="kullanici" name="kullanici" required></ion-input>
+
+    </ion-item>
+    <div *ngIf="kullanici.invalid&&kullanici.dirty" class="alert alert-danger" >
+      Kullanıcı Adı gereklidir
+    </div>
+
+     <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input #email="ngModel" type="text" [(ngModel)]="model.email"  id="email" name="email" required></ion-input>
+
+    </ion-item>
+    <div *ngIf="email.invalid&&email.dirty" class="alert alert-danger" >
+      Email gereklidir
+    </div>
+
+     <ion-item>
+       <ion-label position="floating">Password </ion-label>
+       <ion-input #password="ngModel" type="text" [(ngModel)]="model.password" id="password" name="password" required></ion-input>
+
+     </ion-item>
+     <div *ngIf="password.invalid&&password.dirty" class="alert alert-danger" >
+       Şifre gereklidir
+     </div>
+
+
+
+
+   </ion-list>
+   <ion-button type="submit" [disabled]="productAddForm.invalid"  expand="block">Giriş <ion-icon slot="end"
+       name="create">
+     </ion-icon>
+   </ion-button>
+ </div>
+    <h3  style="color: blue; margin-left: 20px;"   [routerLink]="['/register']" routerLinkActive="router-link-active"   > Kayıt Ol
+    </h3>
+ </form>
+</ion-content>
