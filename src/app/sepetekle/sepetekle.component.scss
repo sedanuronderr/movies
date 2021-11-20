@@ -21,15 +21,12 @@
 
 }
 .header{
-  height: 30px;
-  position: fixed;
-  z-index: 12;
-  width: 270px;
+
+  --background: black;
 
 }
   .wrapper {
 
-    background-color: #380596;
     display: flex;
     justify-content:flex-start;
 
@@ -43,5 +40,6 @@
     }
   }
   ion-content.background{
-    --background: url(../../assets/icon/mor.jpg) 0 0/100% 100% no-repeat;
+    --background: url(../../assets/icon/black.jpg) 0 0/100% 100% no-repeat;
 }
+.icon { zoom: 2.0 }

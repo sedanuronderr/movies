@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { FoodComponent } from '../food/food.component';
 import { CartItemService } from '../services/cart-item.service';
 
 @Component({
@@ -8,13 +10,28 @@ import { CartItemService } from '../services/cart-item.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private active:ActivatedRoute,private cardservice:CartItemService) { }
+   currentPopover = null;
+  constructor(private active:ActivatedRoute,private cardservice:CartItemService,public popoverController: PopoverController) { }
   totalItem !:0;
+  public appPages = [
+    { title: 'Film Ekle', url: '/product-add-1', icon: 'add' },
+    { title: 'Favorites', url: '/sepet', icon: 'heart' },
+
+  ];
   ngOnInit() {
-    this.cardservice.getProducts().subscribe(resp=>{
-      this.totalItem=resp.length;
-   });
+
+  }
+
+  async menu(ev) {
+    const popover = await this.popoverController.create({
+      component: FoodComponent,
+      event: ev,
+
+      backdropDismiss:true
+    });
+
+
+     await popover.present();
   }
 
 }

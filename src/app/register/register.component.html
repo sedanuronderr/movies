@@ -1,8 +1,9 @@
-<ion-content>
+<ion-content  padding class="background">
 
   <form #productAddForm="ngForm"   (ngSubmit)="register(productAddForm)" >
     <div class="form-group">
    <ion-list>
+    <h1  style="margin-left: 120px;" > Kayıt Ol</h1>
     <ion-item>
       <ion-label position="floating">Kullanıcı Adı</ion-label>
       <ion-input #kullanici="ngModel" type="text" [(ngModel)]="model.kullanici"  id="kullanici" name="kullanici" required></ion-input>
@@ -34,12 +35,10 @@
 
 
    </ion-list>
-   <ion-button type="submit" [disabled]="productAddForm.invalid"  expand="block">Giriş <ion-icon slot="end"
-       name="create">
-     </ion-icon>
+   <ion-button style="width: 140px; margin-left: 120px;" type="submit" [disabled]="productAddForm.invalid"  expand="block">Giriş
+
    </ion-button>
  </div>
-    <h3  style="color: blue; margin-left: 20px;"   [routerLink]="['/register']" routerLinkActive="router-link-active"   > Kayıt Ol
-    </h3>
+
  </form>
 </ion-content>

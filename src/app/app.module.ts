@@ -1,3 +1,4 @@
+
 import { CartItemService } from './services/cart-item.service';
 import { RegisterComponent } from './register/register.component';
 import { AcountService } from './services/acount.service';
@@ -30,17 +31,18 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AlertifyService } from './services/alertify.service';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
-
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
+import { AddmobfreeService } from './service/addmobfree.service';
 
 
 @NgModule({
   declarations: [AppComponent, BasicPipe, CategoryfiltPipe,CicekComponent,ProductAddComponent,
     DetailComponent,SepetekleComponent,HeaderComponent,FoodComponent,LoginComponent,RegisterComponent],
-  entryComponents: [],
+  entryComponents: [CicekComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,FormsModule,HttpClientModule,ReactiveFormsModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,AngularFirestoreModule,
-  ToastrModule.forRoot() ,AngularFireAuthModule ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService,CartItemService],
+  ToastrModule.forRoot() ,AngularFireAuthModule ,AdMobFree],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService,CartItemService,AddmobfreeService],
   bootstrap: [AppComponent,CicekComponent,SepetekleComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

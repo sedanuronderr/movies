@@ -1,20 +1,23 @@
-ion-item{
+ion-list{
    margin: 9px;
     border-color: #c4b0f0;
    border-radius: 10px;
   --color: rgb(15, 1, 1);
+  margin-top: 170px;
+height: 220px;
 }
 
-ion-button{
-  --background: #9d8ea3;
-}
-.padding{
+.form-group{
+  height: 190px;
   margin-top: 90px;
-
 }
+
 .border{
 
 margin-top: 80px;
 margin-left: 70px;
 }
 
+.background {
+  --background: url(../../assets/icon/black.jpg) 0 0/100% 100% no-repeat;
+}

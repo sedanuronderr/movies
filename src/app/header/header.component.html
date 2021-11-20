@@ -1,22 +1,13 @@
-<header  style="background-color: #380596;width: 380px;opacity: 1; "  >
-  <ion-grid  >
-    <ion-row>
-      <ion-col >
 
-       <div class="wrapper">
-         <h1>Filmler</h1>
-         <ion-buttons>
-           <ion-button style="width: 70px; height: 70px;" routerLink="/sepet">
-             <ion-icon slot="icon-only"  name="basket"></ion-icon>
-             <i  class="badge bg-danger">{{totalItem}} </i>
-           </ion-button>
-         </ion-buttons>
+<header >
 
-       </div>
+  <ion-toolbar class="header"  >
+    <p style="font-size:27px;margin-left: 9px;  font-family:Times New Roman, Times, serif;color:white  " >Film Evi</p>
+   <ion-buttons slot="end">
+     <ion-button (click)="menu($event)">
+      <ion-icon color="light" name="menu-sharp"></ion-icon>
+    </ion-button>
+   </ion-buttons>
 
-
-      </ion-col>
-
-    </ion-row>
-  </ion-grid>
- </header>
+  </ion-toolbar>
+</header>

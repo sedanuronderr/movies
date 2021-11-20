@@ -1,5 +1,6 @@
-<app-header style="height: 90px; width:280px">
+<app-header   >
 </app-header>
+
 
 <ion-content padding class="background" >
 
@@ -7,7 +8,7 @@
 
   <ion-searchbar placeholder="Ürün giriniz"  [(ngModel)]="filterText"></ion-searchbar>
 
-<h3 *ngIf="products; else elseTemplate">
+<h3 *ngIf="pro; else elseTemplate">
 
 </h3>
 
@@ -30,10 +31,7 @@
 
 </div>
 
-<h1 style="color: white;" class="list-header">Popular</h1>
-
-
-
+<h1 style="color: rgb(255, 255, 255);" class="list-header">Popular</h1>
 <ion-grid>
   <ion-row  >
 
@@ -47,8 +45,6 @@
 
     <ion-card   style="border-radius: 20px;width: 150px; height:260px">
  <img style="width: 240px; height: 170px; border-radius: 10px;" src="{{food.imageUrl}}" (click)="goToDetailPage(food.name,food.imageUrl,food.date,food.yorum)">
-
-
 
 
       <ion-card-header>

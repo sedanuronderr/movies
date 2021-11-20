@@ -1,9 +1,11 @@
 
-<ion-content >
-  <form #productAddForm="ngForm"   (ngSubmit)="login(productAddForm)" >
+
+<ion-content  padding class="background" >
+
+  <form #productAddForm="ngForm"   (ngSubmit)="login(productAddForm)"  >
     <div class="form-group">
    <ion-list>
-
+     <h1  style="margin-left: 130px;" > Login</h1>
 
      <ion-item>
       <ion-label position="floating">Email</ion-label>
@@ -27,12 +29,12 @@
 
 
    </ion-list>
-   <ion-button type="submit" [disabled]="productAddForm.invalid"  expand="block">Giriş <ion-icon slot="end"
-       name="create">
-     </ion-icon>
+   <ion-button style="width: 140px; margin-left: 120px;" type="submit" [disabled]="productAddForm.invalid"  expand="block">Giriş
    </ion-button>
+
+   <h6  style="color: rgb(255, 255, 255); margin-left: 30px;"   [routerLink]="['/register']" routerLinkActive="router-link-active"> Kayıt Ol
+  </h6>
  </div>
-    <h3  style="color: blue; margin-left: 20px;"   [routerLink]="['/register']" routerLinkActive="router-link-active"   > Kayıt Ol
-    </h3>
+
  </form>
 </ion-content>

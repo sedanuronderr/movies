@@ -8,6 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from '@firebase/util';
+import { AcountService } from '../services/acount.service';
+import { ToastrService } from 'ngx-toastr';
+import { AddmobfreeService } from '../service/addmobfree.service';
+
 @Component({
   selector: 'app-cicek',
   templateUrl: './cicek.component.html',
@@ -35,7 +39,7 @@ export class CicekComponent implements OnInit {
 
 
 
-  constructor(private api:HttpClient,private alertify:AlertifyService ,private firestore:AngularFirestore,private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) { }
+  constructor(private admobFreeService: AddmobfreeService,private toastr: ToastrService,private auth:AcountService,private api:HttpClient,private alertify:AlertifyService ,private firestore:AngularFirestore,private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) { }
   title="Ürün Listesi";
   filterText= "";
   totalItem !:0;
@@ -54,6 +58,12 @@ export class CicekComponent implements OnInit {
 
   }
   ngOnInit() {
+
+    setTimeout(() => {
+      this.admobFreeService.showBannerAd();
+    }, 5000);
+
+
    /* this.active.params.subscribe(data=>{
       this.alertify.getproducts(data["id"]).subscribe(data=>{
         this.products=data;
@@ -67,7 +77,6 @@ export class CicekComponent implements OnInit {
 
 
 
-
      this.active.params.subscribe(data=>{
       this.alertify.getcategory(data["id"]).subscribe(data=>{
         this.category=data;
@@ -77,7 +86,13 @@ export class CicekComponent implements OnInit {
    this.getAll();
 
 
+
   }
+  showInterstitialAd(){
+    this.admobFreeService.showInterstitialAd();
+  }
+
+
 
 buton(dataa:any){
 
@@ -117,7 +132,7 @@ goToDetailPage(name:string,image:string,date:string,yorum:string){
 toggleLikeState(item){
 
 
-  console.log(item);
+  this.toastr.success("Favorilere Eklendi","Film");
 
 this.cardservice.cartAdd(item);
 

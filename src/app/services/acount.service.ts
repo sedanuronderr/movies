@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { Register } from '../model/register';
 
 import { User } from '../model/User';
 
@@ -9,6 +10,7 @@ import { User } from '../model/User';
 })
 export class AcountService {
  newUser:any=null;
+  currentuser:Register;
 
   constructor(public afauth :AngularFireAuth,private router:Router) {
 
@@ -43,8 +45,13 @@ export class AcountService {
    });
 
    }
-
-
+   SignOut(){
+    this.afauth.signOut().then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
 
 
 
@@ -69,4 +76,5 @@ logOut(){
   localStorage.removeItem("isLogged");
   this.loggedIN=false;
 }
+
 }
