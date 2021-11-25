@@ -1,4 +1,7 @@
+import { AcountService } from './acount.service';
+import { User } from './../model/User';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { NgForm } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
@@ -6,8 +9,12 @@ declare let alertify:any;
 @Injectable()
 export class CartItemService {
 public cartItemlist=[];
+ veriler:string;
 public productList= new BehaviorSubject<any>([]);
-  constructor(private firestore:AngularFirestore) { }
+  constructor(private firestore:AngularFirestore,public afauth :AngularFireAuth,private account:AcountService) {
+
+
+   }
 
   success(message:string){
     alertify.success(message);
@@ -15,7 +22,8 @@ public productList= new BehaviorSubject<any>([]);
 
    cartAdd(data){
      console.log(data);
-    this.firestore.collection('favori').add(data);
+    this.veriler=this.account.veri
+    this.firestore.collection('user').doc(this.veriler).collection('favorii').add(data);
 
 
    }

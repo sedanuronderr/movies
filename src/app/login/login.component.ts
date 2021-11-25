@@ -7,6 +7,7 @@ import { User } from '../model/User';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+
 })
 export class LoginComponent implements OnInit {
   model :User = new User();

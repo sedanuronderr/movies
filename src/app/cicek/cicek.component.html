@@ -20,18 +20,20 @@
 <div class="scrolling-wrapper" >
   <div   class="card1"  *ngFor="let item of category"    >
     <img style=" width: 100px;
-    height: 100px; border-radius: 9px;
+    height: 100px; border-radius: 9px; margin-left: 11px; "  src={{item.image}}   (click)="buton(item.label)" />
 
-     "  src={{item.image}}   (click)="buton(item.label)" />
-
-    <h2 style="color: white;" >{{item.label}}</h2>
+    <h2 style="color: white;    text-align:center; " >{{item.label}}</h2>
 
   </div>
 
 
 </div>
-
+<div>
 <h1 style="color: rgb(255, 255, 255);" class="list-header">Popular</h1>
+<ion-button (click)="showInterstitialAd()" expand="block" fill="clear" shape="round">
+
+</ion-button>
+</div>
 <ion-grid>
   <ion-row  >
 
@@ -44,7 +46,7 @@
   <div  style="border-radius: 20px;width: 150px; height:260px" *ngFor="let food of pro  | basic:filterText" >
 
     <ion-card   style="border-radius: 20px;width: 150px; height:260px">
- <img style="width: 240px; height: 170px; border-radius: 10px;" src="{{food.imageUrl}}" (click)="goToDetailPage(food.name,food.imageUrl,food.date,food.yorum)">
+ <img style="width: 240px; height: 170px; border-radius: 10px;" src="{{food.imageUrl}}" (click)="goToDetailPage(food.name,food.imageUrl,food.date,food.yorum,food.link)">
 
 
       <ion-card-header>

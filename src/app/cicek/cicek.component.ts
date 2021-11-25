@@ -11,11 +11,14 @@ import { Observable } from '@firebase/util';
 import { AcountService } from '../services/acount.service';
 import { ToastrService } from 'ngx-toastr';
 import { AddmobfreeService } from '../service/addmobfree.service';
+import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free/ngx';
 
 @Component({
+
   selector: 'app-cicek',
   templateUrl: './cicek.component.html',
   styleUrls: ['./cicek.component.scss'],
+  providers:[CartItemService],
   animations:[
     trigger('heart', [
       state('unliked', style({
@@ -30,8 +33,8 @@ import { AddmobfreeService } from '../service/addmobfree.service';
       })),
       transition('unliked <=> liked', animate('100ms ease-out'))
   ])
-  ],
-  providers:[CartItemService]
+  ]
+
 })
 export class CicekComponent implements OnInit {
 
@@ -39,7 +42,8 @@ export class CicekComponent implements OnInit {
 
 
 
-  constructor(private admobFreeService: AddmobfreeService,private toastr: ToastrService,private auth:AcountService,private api:HttpClient,private alertify:AlertifyService ,private firestore:AngularFirestore,private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) { }
+  constructor(private admobFree: AdMobFree,private toastr: ToastrService,private auth:AcountService,private api:HttpClient,private alertify:AlertifyService ,private firestore:AngularFirestore,
+    private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) { }
   title="Ürün Listesi";
   filterText= "";
   totalItem !:0;
@@ -59,10 +63,15 @@ export class CicekComponent implements OnInit {
   }
   ngOnInit() {
 
-    setTimeout(() => {
-      this.admobFreeService.showBannerAd();
-    }, 5000);
+    const bannerConfig: AdMobFreeBannerConfig = {
+      // add your config here
+      // for the sake of this example we will just use the test config
+      isTesting: true,
+      autoShow: true
+     };
+     this.admobFree.banner.config(bannerConfig);
 
+     this.admobFree.banner.prepare()
 
    /* this.active.params.subscribe(data=>{
       this.alertify.getproducts(data["id"]).subscribe(data=>{
@@ -87,12 +96,22 @@ export class CicekComponent implements OnInit {
 
 
 
-  }
-  showInterstitialAd(){
-    this.admobFreeService.showInterstitialAd();
+
   }
 
+  showInterstitialAd() {
+    const InterstitialConfig: AdMobFreeInterstitialConfig = {
+      id:'ca-app-pub-9091655087790369/5320379980',
+      // add your config here
+      // for the sake of this example we will just use the test config
+      isTesting: true,
+      autoShow: true
+     };
+     this.admobFree.interstitial.config(InterstitialConfig);
 
+     this.admobFree.interstitial.prepare()
+
+  }
 
 buton(dataa:any){
 
@@ -112,6 +131,7 @@ buton(dataa:any){
 
 }
 
+
   getAll(){
     this.firestore.collection('film').snapshotChanges().subscribe((response) => {
       this.pro =[];
@@ -126,8 +146,8 @@ buton(dataa:any){
     }
 
 
-goToDetailPage(name:string,image:string,date:string,yorum:string){
-  this.router.navigate(['detail',name,image,date,yorum]);
+goToDetailPage(name:string,image:string,date:string,yorum:string,link:string){
+  this.router.navigate(['detail',name,image,date,yorum,link]);
 }
 toggleLikeState(item){
 

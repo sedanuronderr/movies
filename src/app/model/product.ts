@@ -1,3 +1,5 @@
+import { Register } from "./register";
+
 export class Product {
   push(arg0: unknown) {
     throw new Error('Method not implemented.');
@@ -8,6 +10,7 @@ export class Product {
   imageUrl:string;
   yorum:string;
   date:string;
-
+  link:string;
+  user:Register;
 
 }

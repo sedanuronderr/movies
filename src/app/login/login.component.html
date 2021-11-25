@@ -13,16 +13,16 @@
 
     </ion-item>
     <div *ngIf="email.invalid&&email.dirty" class="alert alert-danger" >
-      Email gereklidir
+      E-mail Boş Bırakılamaz.
     </div>
 
      <ion-item>
        <ion-label position="floating">Password </ion-label>
-       <ion-input #password="ngModel" type="text" [(ngModel)]="model.password" id="password" name="password" required></ion-input>
+       <ion-input #password="ngModel" type="password" [(ngModel)]="model.password" id="password" name="password" required></ion-input>
 
      </ion-item>
      <div *ngIf="password.invalid&&password.dirty" class="alert alert-danger" >
-       Şifre gereklidir
+       Şifre Boş Bırakılamaz.
      </div>
 
 

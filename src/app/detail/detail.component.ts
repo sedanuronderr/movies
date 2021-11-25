@@ -15,10 +15,11 @@ export class DetailComponent implements OnInit {
   image:string;
   date:string;
   yorum:string;
+  link:string;
   product: Product[];
   products: Product[];
    isClicked = false;
-  constructor(private alertify:AlertifyService,  private activate: ActivatedRoute,private cardservice:CartItemService) { }
+  constructor(private alertify:AlertifyService,  private activate: ActivatedRoute) { }
 
   ngOnInit() {
   /*  this.activate.params.subscribe(data=>{
@@ -31,7 +32,7 @@ export class DetailComponent implements OnInit {
     this.image = this.activate.snapshot.paramMap.get('image');
     this.date = this.activate.snapshot.paramMap.get('date');
     this.yorum = this.activate.snapshot.paramMap.get('yorum');
-
+    this.link = this.activate.snapshot.paramMap.get('link');
 
   }
 begenme(){

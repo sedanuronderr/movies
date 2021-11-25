@@ -1,27 +1,35 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Register } from '../model/register';
 
 import { User } from '../model/User';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AcountService {
  newUser:any=null;
   currentuser:Register;
-
-  constructor(public afauth :AngularFireAuth,private router:Router) {
+   cred:any;
+   veri:string;
+  constructor(public afauth :AngularFireAuth,private router:Router,private firestore:AngularFirestore,private toaster:ToastrService) {
 
    }
 
    loggedIN = false;
    registerWithEmail(user){
       this.afauth.createUserWithEmailAndPassword(user.email,user.password).then(create=>{
+           this.firestore.collection('users').doc(create.user.uid).set({
+             email: user.email,
+             password:user.password,
+             kullanici:user.kullanici,
+             id: create.user.uid
+           })
 
-        this.newUser=create
+          this.newUser=create;
          console.log('success',this.newUser);
+         this.toaster.success('Kayıt Başarılı')
          this.router.navigate(['/login']);
 
 
@@ -35,12 +43,18 @@ export class AcountService {
    loginn(kullanici)
    {this.afauth.signInWithEmailAndPassword(kullanici.email,kullanici.password).then(userr=>{
 
-    console.log("Başarılı Giriş", userr);
+    console.log("Başarılı Giriş", userr.user.uid);
+    this.firestore.collection('user').doc(userr.user.uid).set({
+      id: userr.user.uid
+    });
+    this.veri=userr.user.uid;
+    this.toaster.success('Giriş Yapıldı')
     this.router.navigate(['/cicek']);
     this.loggedIN=true;
 
    }).catch((error) => {
     console.log("Yanlış bilgi",error.message);
+    this.toaster.error('Yanlış Bilgi Girdiniz..Tekrar Deneyiniz')
     this.router.navigate(['/login']);
    });
 

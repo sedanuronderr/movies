@@ -3,7 +3,7 @@ import { CartItemService } from './services/cart-item.service';
 import { RegisterComponent } from './register/register.component';
 import { AcountService } from './services/acount.service';
 import { LoginComponent } from './login/login.component';
-import { initializeApp } from 'firebase/app';
+
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -41,8 +41,8 @@ import { AddmobfreeService } from './service/addmobfree.service';
   entryComponents: [CicekComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,FormsModule,HttpClientModule,ReactiveFormsModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,AngularFirestoreModule,
-  ToastrModule.forRoot() ,AngularFireAuthModule ,AdMobFree],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService,CartItemService,AddmobfreeService],
+  ToastrModule.forRoot() ,AngularFireAuthModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService,AddmobfreeService,AdMobFree],
   bootstrap: [AppComponent,CicekComponent,SepetekleComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

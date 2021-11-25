@@ -10,32 +10,37 @@
 
     </ion-item>
     <div *ngIf="kullanici.invalid&&kullanici.dirty" class="alert alert-danger" >
-      Kullanıcı Adı gereklidir
+      Kullanıcı Adı Boş Bırakılamaz.
     </div>
 
      <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input #email="ngModel" type="text" [(ngModel)]="model.email"  id="email" name="email" required></ion-input>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input #email="ngModel" type="email" [(ngModel)]="model.email"  id="email" name="email" required></ion-input>
 
     </ion-item>
     <div *ngIf="email.invalid&&email.dirty" class="alert alert-danger" >
-      Email gereklidir
+      E-mail Boş Bırakılamaz.
     </div>
 
      <ion-item>
        <ion-label position="floating">Password </ion-label>
-       <ion-input #password="ngModel" type="text" [(ngModel)]="model.password" id="password" name="password" required></ion-input>
+       <ion-input #password="ngModel" type="password" [(ngModel)]="model.password"  minlength="6" id="password" name="password" required></ion-input>
 
      </ion-item>
-     <div *ngIf="password.invalid&&password.dirty" class="alert alert-danger" >
-       Şifre gereklidir
+
+     <div *ngIf="password.invalid&&password.dirty " class="alert alert-danger" >
+      <div *ngIf="password.errors.minlength " class="alert alert-danger" >
+        Şifre En Az 6 Karakterli Olmalı.
+      </div>
+       Şifre Boş Bırakılamaz.
+
      </div>
 
 
 
 
    </ion-list>
-   <ion-button style="width: 140px; margin-left: 120px;" type="submit" [disabled]="productAddForm.invalid"  expand="block">Giriş
+   <ion-button style="width: 140px; margin-left: 120px;" [routerLink]="['/login']"   type="submit" [disabled]="productAddForm.invalid"  expand="block">Giriş
 
    </ion-button>
  </div>

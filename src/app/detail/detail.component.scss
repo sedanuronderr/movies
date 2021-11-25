@@ -101,8 +101,9 @@ ion-content {
   .badge {
     width: 190px;
     margin-right: 1rem;
-    background: black;
-    color: #fff;
+   border-style: ridge;
+   border-color: black;
+    color: rgb(0, 0, 0);
     font-size: 1.2rem;
     display: flex;
     align-items: center;
@@ -117,4 +118,6 @@ ion-content {
   .myClass{
     color : red;
   }
-
+.link{
+  margin-top:20px ;
+}

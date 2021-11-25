@@ -1,11 +1,12 @@
-<ion-content>
+<ion-content padding class="background">
 
   <div class="header">
     <ion-buttons>
       <ion-button routerLink="/cicek">
-        <ion-icon slot="icon-only" color='dark' name="arrow-back"></ion-icon>
+        <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
+
 
   </div>
 
@@ -19,7 +20,7 @@
 
     </ion-item>
     <div *ngIf="name.invalid&&name.dirty" class="alert alert-danger" >
-      Film ismi gereklidir
+      Film İsmi Yazmanız Gerekiyor.
     </div>
 
     <ion-item>
@@ -28,7 +29,7 @@
 
     </ion-item>
     <div *ngIf="imageUrl.invalid&&imageUrl.dirty" class="alert alert-danger" >
-      Film resmi gereklidir
+      Film Url Adresi Yazmanız Gerekiyor.
     </div>
 
     <ion-item>
@@ -37,7 +38,7 @@
 
     </ion-item>
     <div *ngIf="date.invalid&&date.dirty" class="alert alert-danger" >
-      Film saati gereklidir
+      Film Saati Yazmanız Gerekiyor.
     </div>
 
     <ion-item>
@@ -46,7 +47,17 @@
 
     </ion-item>
     <div *ngIf="yorum.invalid&&yorum.dirty" class="alert alert-danger" >
-      yorum gereklidir
+      Yorum Yazmanız Gerekiyor.
+    </div>
+
+
+    <ion-item>
+      <ion-label position="floating">Film Link</ion-label>
+      <ion-input #link="ngModel" type="text" [(ngModel)]="model.link" name="link" required></ion-input>
+
+    </ion-item>
+    <div *ngIf="link.invalid&&link.dirty" class="alert alert-danger" >
+      Film Fragmanı Yazmanız Gerekiyor.
     </div>
     <ion-item>
       <ion-label color="medium">Film türü:</ion-label>
@@ -58,12 +69,10 @@
       <ion-icon name="chevron-forward-outline" color="primary" item-end></ion-icon>
     </ion-item>
     <div *ngIf="cId.invalid&&cId.dirty" class="alert alert-danger" >
-      Film türü gereklidir
+      Film Türü Yazmanız Gerekiyor.
     </div>
   </ion-list>
-  <ion-button type="submit" [disabled]="productAddForm.invalid"  expand="block">Ekle <ion-icon slot="end"
-      name="create">
-    </ion-icon>
+  <ion-button type="submit" [disabled]="productAddForm.invalid"  expand="block">Ekle
   </ion-button>
 </div>
 </form>

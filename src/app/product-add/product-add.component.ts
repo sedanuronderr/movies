@@ -18,7 +18,7 @@ export class ProductAddComponent implements OnInit {
   model :Product = new Product();
   category:[];
   product:Product;
-   fruits: string[] = ['Korku', 'Komedi', 'Romantik','Bilim'];
+   fruits: string[] = ['Korku', 'Komedi', 'Romantik','Bilim-Kurgu','Macera','Aksiyon'];
   ngOnInit() {
 
   }
