@@ -66,6 +66,7 @@ export class CicekComponent implements OnInit {
     const bannerConfig: AdMobFreeBannerConfig = {
       // add your config here
       // for the sake of this example we will just use the test config
+      id:'ca-app-pub-9091655087790369/5381580424',
       isTesting: true,
       autoShow: true
      };
