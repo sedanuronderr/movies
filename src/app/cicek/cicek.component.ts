@@ -104,19 +104,7 @@ export class CicekComponent implements OnInit {
 
   }
 
-  showInterstitialAd() {
-    const InterstitialConfig: AdMobFreeInterstitialConfig = {
-      id:'ca-app-pub-9091655087790369/5320379980',
-      // add your config here
-      // for the sake of this example we will just use the test config
-      isTesting: true,
-      autoShow: true
-     };
-     this.admobFree.interstitial.config(InterstitialConfig);
 
-     this.admobFree.interstitial.prepare()
-
-  }
 
 buton(dataa:any){
 
