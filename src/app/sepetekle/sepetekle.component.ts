@@ -1,10 +1,11 @@
 import { CartItemService } from '../services/cart-item.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AcountService } from '../services/acount.service';
-
+import { Observable } from 'rxjs';
+export interface Item { name: string; }
 @Component({
   selector: 'app-sepetekle',
   templateUrl: './sepetekle.component.html',
@@ -15,6 +16,8 @@ export class SepetekleComponent implements OnInit {
     product:any=[];
     pro=[];
     veriler:string;
+
+   private itemsCollection: AngularFirestoreCollection<Item>;
   constructor(private account:AcountService,private cardservice:CartItemService,private firestore:AngularFirestore,public afauth :AngularFireAuth) { }
 
   ngOnInit() {
@@ -25,8 +28,11 @@ export class SepetekleComponent implements OnInit {
     this.getAll();
   }
   removeItem(item){
+    this.veriler=this.account.veri
+     this.firestore.collection('user').doc(this.veriler).collection('favorii').doc(item).delete();
 
-    this.firestore.collection('favori').doc(item).delete();
+
+
 
     this.cardservice.removeCartItem(item);
   }

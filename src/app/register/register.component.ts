@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
     let data =form.value;
 
     this.auth.registerWithEmail(data);
-
+    form.resetForm();
 
   }
 

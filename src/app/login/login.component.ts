@@ -20,5 +20,6 @@ export class LoginComponent implements OnInit {
   login(form:NgForm){
     let data =form.value;
     this.account.loginn(data);
+    form.resetForm();
   }
 }

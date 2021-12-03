@@ -10,7 +10,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from '@firebase/util';
 import { AcountService } from '../services/acount.service';
 import { ToastrService } from 'ngx-toastr';
-import { AddmobfreeService } from '../service/addmobfree.service';
+
 import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free/ngx';
 
 @Component({
@@ -43,7 +43,22 @@ export class CicekComponent implements OnInit {
 
 
   constructor(private admobFree: AdMobFree,private toastr: ToastrService,private auth:AcountService,private api:HttpClient,private alertify:AlertifyService ,private firestore:AngularFirestore,
-    private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) { }
+    private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) {
+
+      const bannerConfig: AdMobFreeBannerConfig = {
+        // add your config here
+        // for the sake of this example we will just use the test config
+        id:'ca-app-pub-9091655087790369/5381580424',
+        isTesting: true,
+        autoShow: true,
+        overlap:true
+       };
+       this.admobFree.banner.config(bannerConfig);
+
+       this.admobFree.banner.prepare()
+
+
+     }
   title="Ürün Listesi";
   filterText= "";
   totalItem !:0;
@@ -62,17 +77,6 @@ export class CicekComponent implements OnInit {
 
   }
   ngOnInit() {
-
-    const bannerConfig: AdMobFreeBannerConfig = {
-      // add your config here
-      // for the sake of this example we will just use the test config
-      id:'ca-app-pub-9091655087790369/5381580424',
-      isTesting: true,
-      autoShow: true
-     };
-     this.admobFree.banner.config(bannerConfig);
-
-     this.admobFree.banner.prepare()
 
    /* this.active.params.subscribe(data=>{
       this.alertify.getproducts(data["id"]).subscribe(data=>{
