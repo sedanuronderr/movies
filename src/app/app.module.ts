@@ -31,7 +31,6 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AlertifyService } from './services/alertify.service';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AdMobFree } from '@ionic-native/admob-free/ngx';
 
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
