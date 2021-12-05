@@ -12,6 +12,7 @@ import { AcountService } from '../services/acount.service';
 import { ToastrService } from 'ngx-toastr';
 
 import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free/ngx';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
 
@@ -43,7 +44,7 @@ export class CicekComponent implements OnInit {
 
 
   constructor(private admobFree: AdMobFree,private toastr: ToastrService,private auth:AcountService,private api:HttpClient,private alertify:AlertifyService ,private firestore:AngularFirestore,
-    private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService) {
+    private  router: Router,private active:ActivatedRoute,private cardservice:CartItemService,private readonly sanitizer: DomSanitizer) {
 
 
 
@@ -93,7 +94,6 @@ export class CicekComponent implements OnInit {
 
 
   }
-
 
 
 buton(dataa:any){

@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {path:'login',component:LoginComponent},
   {path:'cicek',component:CicekComponent},
-  {path:'product-add-1',component: ProductAddComponent},
+  {path:'product-add-1',component: ProductAddComponent,canActivate:[LoginGuardGuard]},
    {path:'app',component:AppComponent},
    {path:'detail/:name/:image/:date/:yorum/:link',component:DetailComponent,canActivate:[LoginGuardGuard]},
    {path:'sepet',component:SepetekleComponent,canActivate:[LoginGuardGuard]},

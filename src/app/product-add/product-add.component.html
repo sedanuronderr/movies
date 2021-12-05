@@ -20,18 +20,21 @@
 
     </ion-item>
     <div *ngIf="name.invalid&&name.dirty" class="alert alert-danger" >
-      Film İsmi Yazmanız Gerekiyor.
+      Film İsmi Gerekiyor.
     </div>
 
     <ion-item>
-      <ion-label position="floating">Film Resmi Url
+<div class="image">
+      <ion-label position="floating">Film Resmi
+
           </ion-label>
-          <a style="margin-left: 190px;" target="_blank" href="https://www.google.com.tr/imghp?hl=tr">Resim Ara</a>
-      <ion-input #imageUrl="ngModel" type="text" [(ngModel)]="model.imageUrl" id="imageUrl" name="imageUrl" required></ion-input>
+          <ion-input style="margin-top:8px;" type="file" (change)="onFile($event)"  accept="image/*" required></ion-input>
+        </div>
+      <ion-input #imageUrl="ngModel" type="url" [(ngModel)]="model.imageUrl" id="imageUrl" name="imageUrl"  required></ion-input>
 
     </ion-item>
     <div *ngIf="imageUrl.invalid&&imageUrl.dirty" class="alert alert-danger" >
-      Film Url Adresi Yazmanız Gerekiyor.
+      Film Resmi Gerekiyor.
     </div>
 
     <ion-item>
@@ -40,7 +43,7 @@
 
     </ion-item>
     <div *ngIf="date.invalid&&date.dirty" class="alert alert-danger" >
-      Film Saati Yazmanız Gerekiyor.
+      Film Saati Gerekiyor.
     </div>
 
     <ion-item>
@@ -49,18 +52,18 @@
 
     </ion-item>
     <div *ngIf="yorum.invalid&&yorum.dirty" class="alert alert-danger" >
-      Yorum Yazmanız Gerekiyor.
+      Yorum  Gerekiyor.
     </div>
 
 
     <ion-item>
-      <ion-label position="floating">Film Link</ion-label>
+      <ion-label position="floating">Film Fragmanı</ion-label>
       <a style="margin-left: 190px;" target="_blank" href="https://www.youtube.com/">Fragman Ara</a>
       <ion-input #link="ngModel" type="text" [(ngModel)]="model.link" name="link" required></ion-input>
 
     </ion-item>
     <div *ngIf="link.invalid&&link.dirty" class="alert alert-danger" >
-      Film Fragmanı Yazmanız Gerekiyor.
+      Film Fragmanı Gerekiyor.
     </div>
     <ion-item>
       <ion-label color="medium">Film türü:</ion-label>
