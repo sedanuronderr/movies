@@ -32,7 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AlertifyService } from './services/alertify.service';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
-import { AddmobfreeService } from './service/addmobfree.service';
+
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
@@ -42,7 +42,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,FormsModule,HttpClientModule,ReactiveFormsModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,AngularFirestoreModule,
   ToastrModule.forRoot() ,AngularFireAuthModule, AngularFireStorageModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService,AddmobfreeService,AdMobFree],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AlertifyService,AcountService],
   bootstrap: [AppComponent,CicekComponent,SepetekleComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
