@@ -1,4 +1,5 @@
 # movies
+## Projede  TypeScript ,Angular,Html ve Css dilleri  kullanıldı.
 
 <table>
 <tr>
