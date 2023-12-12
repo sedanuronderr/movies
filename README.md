@@ -1,5 +1,5 @@
-# movies
-## Projede  TypeScript ,Angular,Html ve Css dilleri  kullanıldı.
+# Movies App
+## TypeScript ,Angular,Html ve Css technologies were used in the project..
 
 <table>
 <tr>
